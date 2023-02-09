@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../models/TaskSchema');
 
-router.get('/completed', (req, res) => {
-    Task.find({ status: "completed" })
+router.get('/:status', (req, res) => {
+    const status = req.params.status;
+    Task.find({ status: status })
         .then(data => {
             res.status(200).send(data);
         })

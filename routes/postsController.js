@@ -7,6 +7,7 @@ router.post('/', (req, res) => {
         name: req.body.name,
         description: req.body.description,
         status: req.body.status,
+        priority: req.body.priority,
         dueDate: req.body.dueDate,
     });
 
