@@ -27,7 +27,14 @@ const taskSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    versionKey: false,
+    },
+    { timestamps: true }
+);
+
+taskSchema.method('toJSON', function() {
+    const { __v, _id, ...object } = this.toObject();
+    object.id = _id;
+    return object;
 });
 
-module.exports = mongoose.model('Task', taskSchema, 'tasks');
+module.exports = mongoose.model('Task', taskSchema);
