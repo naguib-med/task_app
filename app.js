@@ -6,8 +6,8 @@ require('./models/dbConfig');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const postsRouter = require('./routes/postsController');
 const getsRouter = require('./routes/getsController');
+const postsRouter = require('./routes/postsController');
 const putsRouter = require('./routes/putsController');
 const deletesRouter = require('./routes/deletesController');
 
