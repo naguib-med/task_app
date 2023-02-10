@@ -18,14 +18,15 @@ router.get('/:id', (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Error retrieving Task with id=" + id
+                    err.message || "Error retrieving Task with id=" + _id
             });
         });
 });
 router.get('/', (req, res) => {
     Task.find()
         .then(data => {
-            res.status(200).send(data);
+            res.render('index', {tasks: data, test: 'test'});
+            //res.status(200).send(data);
         })
         .catch(err => {
             res.status(500).send({
@@ -63,8 +64,6 @@ router.get('/:status/:priority', (req, res) => {
             });
         });
 });
-
-// get by id
 
 
 

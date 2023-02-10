@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+
+app.set('view engine', 'ejs');
+
 const port = process.env.PORT || 3000;
 require('./models/dbConfig');
 app.use(bodyParser.json());

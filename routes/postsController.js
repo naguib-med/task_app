@@ -13,6 +13,7 @@ router.post('/', (req, res) => {
 
     task.save()
         .then(data => {
+            //res.redirect('/api/tasks');
             res.status(201).send(data);
         }).catch(err => {
         res.status(500).send({
